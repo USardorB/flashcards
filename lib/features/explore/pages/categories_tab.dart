@@ -18,7 +18,9 @@ class CategoriesTab extends StatelessWidget {
       itemCount: 10,
       padding: const EdgeInsets.all(12),
       itemBuilder: (BuildContext context, int index) {
-        return const GridItem();
+        return const GridItem(
+          color: Color(0xFF465156),
+        );
       },
     );
   }

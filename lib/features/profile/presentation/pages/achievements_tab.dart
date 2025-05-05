@@ -10,7 +10,9 @@ class AchievementsTab extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
-      itemBuilder: (context, index) => const GridItem(),
+      itemBuilder: (context, index) => const GridItem(
+        color: Color(0xFF416969),
+      ),
     );
   }
 }

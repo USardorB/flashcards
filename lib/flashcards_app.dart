@@ -18,6 +18,7 @@ class FlashcardsApp extends StatelessWidget {
           onError: Colors.white,
           surface: Colors.white,
           onSurface: const Color(0xFF020817),
+          outlineVariant: Colors.black12,
         ),
         textTheme: const TextTheme(
           // titleSmall: This has already its own place

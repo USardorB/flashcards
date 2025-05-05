@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
 
 class GridItem extends StatelessWidget {
+  final Color color;
   const GridItem({
     super.key,
+    required this.color,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Card.outlined(
+    return Card.outlined(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
-            child: Icon(Icons.book_outlined),
+            backgroundColor: color.withAlpha(40),
+            child: Icon(Icons.book_outlined, color: color),
           ),
-          SizedBox(height: 4),
-          Text(
-            'Beginner',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-            ),
-          ),
-          Text('45 sets', style: TextStyle(fontSize: 12)),
+          const SizedBox(height: 4),
+          Text('Beginner', style: TextTheme.of(context).bodyMedium),
+          Text('45 sets', style: TextTheme.of(context).bodySmall),
         ],
       ),
     );
