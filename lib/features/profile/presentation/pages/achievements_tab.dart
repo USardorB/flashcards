@@ -12,6 +12,8 @@ class AchievementsTab extends StatelessWidget {
       ),
       itemBuilder: (context, index) => const GridItem(
         color: Color(0xFF416969),
+        subtitle: 'Beginner',
+        title: '32 sets',
       ),
     );
   }

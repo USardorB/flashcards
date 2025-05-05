@@ -1,3 +1,4 @@
+import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class ReadyToPracticeContainer extends StatelessWidget {
@@ -6,7 +7,7 @@ class ReadyToPracticeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         gradient: const LinearGradient(begin: Alignment(-1, 1), colors: [
@@ -17,16 +18,27 @@ class ReadyToPracticeContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text('Ready to practice?'),
+          const Text(
+            'Ready to practice?',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          context.toHeight(1),
           const Text(
             'Choose a learning mode below to start improving your language skills.',
+            style: TextStyle(fontSize: 14, color: Colors.white),
           ),
-          const Text(
-            'Or press belove to chose a random one.',
-          ),
-          ElevatedButton(
+          context.toHeight(1),
+          FilledButton(
             onPressed: () {},
-            child: const Text('Pick a random'),
+            style: FilledButton.styleFrom(
+              backgroundColor: ColorScheme.of(context).surface,
+              foregroundColor: ColorScheme.of(context).onSurface,
+            ),
+            child: const Text('Pick Random'),
           )
         ],
       ),

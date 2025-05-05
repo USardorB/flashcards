@@ -26,10 +26,28 @@ class FlashcardsApp extends StatelessWidget {
           titleMedium: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
           bodyLarge: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
           bodyMedium: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+          labelMedium: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 14,
+            color: Color(0xFF64748B),
+          ),
           bodySmall: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 12,
             color: Color(0xFF64748B),
+          ),
+        ),
+        filledButtonTheme: FilledButtonThemeData(
+          style: ButtonStyle(
+            textStyle: WidgetStatePropertyAll(
+              TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            ),
+            foregroundColor: WidgetStatePropertyAll(Colors.white),
+            shape: WidgetStateProperty.fromMap({
+              WidgetState.any: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              )
+            }),
           ),
         ),
         searchBarTheme: SearchBarThemeData(

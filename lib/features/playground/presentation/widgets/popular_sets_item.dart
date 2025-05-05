@@ -24,16 +24,19 @@ class PopularSetsItem extends StatelessWidget {
       ),
       horizontalTitleGap: 12,
       minVerticalPadding: 16,
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextTheme.of(context).bodyMedium,
+      ),
       subtitle: Text(
         subtitle,
-        style: const TextStyle(color: Colors.black38),
+        style: TextTheme.of(context).bodySmall,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
       leading: CircleAvatar(
-        backgroundColor: color,
-        child: Icon(icon),
+        backgroundColor: color.withAlpha(40),
+        child: Icon(icon, color: color),
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       trailing: Align(
@@ -43,10 +46,7 @@ class PopularSetsItem extends StatelessWidget {
           margin: EdgeInsets.zero,
           child: Padding(
             padding: const EdgeInsets.all(4),
-            child: Text(
-              mode,
-              style: const TextStyle(fontSize: 12),
-            ),
+            child: Text(mode, style: TextTheme.of(context).bodySmall),
           ),
         ),
       ),
