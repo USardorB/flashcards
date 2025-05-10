@@ -23,8 +23,14 @@ class GridItem extends StatelessWidget {
             child: Icon(Icons.book_outlined, color: color),
           ),
           const SizedBox(height: 4),
-          Text(title, style: TextTheme.of(context).bodyMedium),
-          Text(subtitle, style: TextTheme.of(context).bodySmall),
+          Text(
+            title,
+            style: TextTheme.of(context).bodyMedium,
+          ),
+          Text(
+            subtitle,
+            style: TextTheme.of(context).bodySmall,
+          ),
         ],
       ),
     );

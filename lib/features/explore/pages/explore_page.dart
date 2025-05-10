@@ -13,16 +13,16 @@ class ExplorePage extends StatelessWidget {
       body: DefaultTabController(
         length: 3,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(context.fromHeight(16.0)),
           child: Column(
             children: [
               const SearchBar(
                 hintText: 'Search language sets...',
                 leading: Icon(Icons.search),
               ),
-              context.toHeight(3),
+              context.toHeight(24),
               SizedBox(
-                height: 46,
+                height: context.fromHeight(46),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: const Color(0x15626C79),
@@ -38,7 +38,7 @@ class ExplorePage extends StatelessWidget {
                   ),
                 ),
               ),
-              context.toHeight(1),
+              context.toHeight(8),
               const Flexible(
                 child: TabBarView(
                   children: [

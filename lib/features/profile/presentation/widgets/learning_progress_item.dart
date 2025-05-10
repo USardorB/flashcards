@@ -15,14 +15,21 @@ class LearningProgressItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
       child: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(title),
-            Text('${value * 100}%'),
-          ],
-        ),
-        LinearProgressIndicator(value: value)
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text(
+            title,
+            style: TextTheme.of(context).titleSmall,
+          ),
+          Text(
+            '${value * 100}%',
+            style: TextTheme.of(context).bodySmall,
+          ),
+        ]),
+        LinearProgressIndicator(
+          value: value,
+          minHeight: 8,
+          borderRadius: BorderRadius.circular(8),
+        )
       ]),
     );
   }

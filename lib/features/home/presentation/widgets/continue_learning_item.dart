@@ -16,11 +16,14 @@ class ContinueLearningItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      minVerticalPadding: 16,
-      title: Text(title, style: TextTheme.of(context).bodyMedium),
+      title: Text(
+        title,
+        style: TextTheme.of(context).bodyMedium,
+      ),
       subtitle: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         LinearProgressIndicator(
           value: value,
+          minHeight: 6,
           borderRadius: BorderRadius.circular(4),
         ),
         Text(

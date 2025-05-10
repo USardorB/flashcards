@@ -10,7 +10,7 @@ class PopularTab extends StatelessWidget {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
-        spacing: context.fromHeight(1.4),
+        spacing: context.fromHeight(12),
         children: [
           const PopularSetsItem(
             title: 'Essential Phrases',

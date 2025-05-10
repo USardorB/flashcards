@@ -1,0 +1,1 @@
+/home/novo/dev/builds/flashcards/build/app/intermediates/cxx/Debug/171k6e52/obj/armeabi-v7a

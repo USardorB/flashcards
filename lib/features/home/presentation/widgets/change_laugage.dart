@@ -1,4 +1,5 @@
 import 'package:flashcards/core/enums/languages.dart';
+import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class ChangeLaugage extends StatefulWidget {
@@ -18,6 +19,7 @@ class _ChangeLaugageState extends State<ChangeLaugage> {
       itemBuilder: (context) => Languages.values.map((e) {
         return PopupMenuItem(value: e, child: Text(e.toString()));
       }).toList(),
+      constraints: BoxConstraints(minWidth: context.fromWidth(130)),
       onSelected: (value) => setState(() => language = value),
       borderRadius: BorderRadius.circular(18),
       child: Card.outlined(

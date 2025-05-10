@@ -7,7 +7,10 @@ class ReadyToPracticeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.fromWidth(24),
+        vertical: context.fromHeight(24),
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         gradient: const LinearGradient(begin: Alignment(-1, 1), colors: [
@@ -26,12 +29,12 @@ class ReadyToPracticeContainer extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          context.toHeight(1),
+          context.toHeight(8),
           const Text(
             'Choose a learning mode below to start improving your language skills.',
             style: TextStyle(fontSize: 14, color: Colors.white),
           ),
-          context.toHeight(1),
+          context.toHeight(16),
           FilledButton(
             onPressed: () {},
             style: FilledButton.styleFrom(

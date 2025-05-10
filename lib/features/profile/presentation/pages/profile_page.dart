@@ -23,17 +23,18 @@ class ProfilePage extends StatelessWidget {
                 'John Doe',
                 style: TextTheme.of(context).titleLarge,
               ),
+              context.toHeight(2),
               Text(
                 'Joined April 2023',
                 style: TextTheme.of(context).labelMedium,
               ),
-              context.toHeight(1),
+              context.toHeight(4),
               const StreakAndLevelRow(),
-              context.toHeight(3),
-              const SizedBox(height: 100, child: MiniStatsRow()),
-              context.toHeight(3),
+              context.toHeight(16),
+              SizedBox(height: context.fromHeight(100), child: MiniStatsRow()),
+              context.toHeight(12),
               SizedBox(
-                height: 46,
+                height: context.fromHeight(46),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: const Color(0x15626C79),
@@ -49,9 +50,9 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              context.toHeight(2),
-              const SizedBox(
-                height: 500,
+              context.toHeight(18),
+              SizedBox(
+                height: context.fromHeight(520),
                 child: TabBarView(children: [
                   StatsTab(),
                   AchievementsTab(),

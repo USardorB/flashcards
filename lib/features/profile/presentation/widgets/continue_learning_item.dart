@@ -1,3 +1,4 @@
+import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class ContinueLearningItem extends StatelessWidget {
@@ -18,40 +19,54 @@ class ContinueLearningItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      shape: RoundedRectangleBorder(
-        side: const BorderSide(color: Colors.black12),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      horizontalTitleGap: 12,
-      minVerticalPadding: 16,
       title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+          style: TextTheme.of(context).bodyMedium,
         ),
         Card.outlined(
           margin: EdgeInsets.zero,
           child: Padding(
-            padding: const EdgeInsets.all(4),
-            child: Text(level, style: const TextStyle(fontSize: 12)),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.fromWidth(10),
+              vertical: context.fromHeight(2),
+            ),
+            child: Text(
+              level,
+              style: TextTheme.of(context).labelLarge,
+            ),
           ),
         )
       ]),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const LinearProgressIndicator(
-              value: .6, backgroundColor: Colors.black12),
+          context.toHeight(8),
+          LinearProgressIndicator(
+            value: .6,
+            minHeight: 6,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          context.toHeight(8),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(subtitle, style: const TextStyle(color: Colors.black38)),
-            const Text('45%')
+            Text(
+              subtitle,
+              style: TextTheme.of(context).bodySmall,
+            ),
+            Text(
+              '45%',
+              style: TextTheme.of(context).bodySmall,
+            )
           ]),
         ],
       ),
       leading: CircleAvatar(
-        radius: 26,
-        backgroundColor: color,
-        child: Icon(icon),
+        radius: 22,
+        backgroundColor: color.withAlpha(40),
+        child: Icon(
+          icon,
+          color: color,
+        ),
       ),
     );
   }

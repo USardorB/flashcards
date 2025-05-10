@@ -1,3 +1,4 @@
+import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class DashboardDailyGoal extends StatelessWidget {
@@ -5,11 +6,16 @@ class DashboardDailyGoal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final smallTitle = TextTheme.of(context).titleSmall?.copyWith(
+    final titleSmall = TextTheme.of(context).titleSmall?.copyWith(
+          color: ColorScheme.of(context).surface,
+        );
+    final titleMedium = TextTheme.of(context).titleMedium?.copyWith(
           color: ColorScheme.of(context).surface,
         );
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.fromWidth(24),
+      ),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [Color(0xFF14b8a6), Color(0xFF10b981)],
@@ -19,14 +25,12 @@ class DashboardDailyGoal extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 8,
+        spacing: context.fromHeight(8),
         children: [
-          const SizedBox(height: 16),
+          context.toHeight(16),
           Text(
             'Daily Goal',
-            style: TextTheme.of(context).titleMedium?.copyWith(
-                  color: ColorScheme.of(context).surface,
-                ),
+            style: titleMedium,
           ),
           LinearProgressIndicator(
             value: .65,
@@ -35,15 +39,15 @@ class DashboardDailyGoal extends StatelessWidget {
             backgroundColor: const Color(0x9FFFFFFF),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text('65 XP today', style: smallTitle),
-            Text('100 XP goal', style: smallTitle),
+            Text('65 XP today', style: titleSmall),
+            Text('100 XP goal', style: titleSmall),
           ]),
           ListTile(
             leading: const Icon(Icons.schedule, color: Colors.white),
             contentPadding: EdgeInsets.zero,
-            title: Text('5 day streak! Keep it up!', style: smallTitle),
+            title: Text('5 day streak! Keep it up!', style: titleSmall),
           ),
-          const SizedBox(height: 6),
+          context.toHeight(6),
         ],
       ),
     );

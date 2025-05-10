@@ -1,3 +1,4 @@
+import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flashcards/core/shared/widgets/section_title.dart';
 import 'package:flashcards/features/home/presentation/widgets/change_laugage.dart';
 import 'package:flashcards/features/home/presentation/widgets/continue_learning_item.dart';
@@ -13,14 +14,17 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('LinguaFlash'),
-        actions: [const ChangeLaugage(), const SizedBox(width: 12)],
+        actions: [
+          const ChangeLaugage(),
+          const SizedBox(width: 12),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
         child: Column(spacing: 12, children: [
           const DashboardDailyGoal(),
           SizedBox(
-            height: 140,
+            height: context.fromHeight(140),
             child: Row(spacing: 12, children: [
               DashboardFillerCards(
                 title: 'Progress',

@@ -1,3 +1,4 @@
+import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class PopularSetsItem extends StatelessWidget {
@@ -26,8 +27,6 @@ class PopularSetsItem extends StatelessWidget {
         side: const BorderSide(color: Colors.black12),
         borderRadius: BorderRadius.circular(12),
       ),
-      horizontalTitleGap: 12,
-      minVerticalPadding: 16,
       title: Text(title, style: TextTheme.of(context).bodyMedium),
       isThreeLine: true,
       subtitle: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -55,10 +54,13 @@ class PopularSetsItem extends StatelessWidget {
         child: Card.outlined(
           margin: EdgeInsets.zero,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.fromWidth(10),
+              vertical: context.fromHeight(2),
+            ),
             child: Text(
               level,
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+              style: TextTheme.of(context).labelLarge,
             ),
           ),
         ),

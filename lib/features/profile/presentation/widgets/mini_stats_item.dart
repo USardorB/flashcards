@@ -19,8 +19,15 @@ class MiniStatsItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(title),
-              Text(subtitle, textAlign: TextAlign.center),
+              Text(
+                title,
+                style: TextTheme.of(context).titleLarge,
+              ),
+              Text(
+                subtitle,
+                textAlign: TextAlign.center,
+                style: TextTheme.of(context).bodySmall,
+              ),
             ],
           ),
         ),

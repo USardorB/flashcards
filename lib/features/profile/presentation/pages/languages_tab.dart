@@ -13,7 +13,7 @@ class LanguagesTab extends StatelessWidget {
           subtitle: '120 words learned',
           level: 'Intermediate',
           icon: Icons.book,
-          color: DefaultSelectionStyle.defaultColor,
+          color: Colors.blueGrey,
         )
       ],
     );
