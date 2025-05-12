@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flashcards/features/profile/presentation/pages/achievements_tab.dart';
 import 'package:flashcards/features/profile/presentation/pages/languages_tab.dart';
 import 'package:flashcards/features/profile/presentation/pages/stats_tab.dart';
@@ -23,18 +22,21 @@ class ProfilePage extends StatelessWidget {
                 'John Doe',
                 style: TextTheme.of(context).titleLarge,
               ),
-              context.toHeight(2),
+              SizedBox(height: 2),
               Text(
                 'Joined April 2023',
                 style: TextTheme.of(context).labelMedium,
               ),
-              context.toHeight(4),
+              SizedBox(height: 4),
               const StreakAndLevelRow(),
-              context.toHeight(16),
-              SizedBox(height: context.fromHeight(100), child: MiniStatsRow()),
-              context.toHeight(12),
+              SizedBox(height: 16),
               SizedBox(
-                height: context.fromHeight(46),
+                height: 100,
+                child: MiniStatsRow(),
+              ),
+              SizedBox(height: 12),
+              SizedBox(
+                height: 46,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: const Color(0x15626C79),
@@ -50,9 +52,9 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              context.toHeight(18),
+              SizedBox(height: 16),
               SizedBox(
-                height: context.fromHeight(520),
+                height: 520,
                 child: TabBarView(children: [
                   StatsTab(),
                   AchievementsTab(),

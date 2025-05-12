@@ -14,25 +14,19 @@ class GridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card.outlined(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundColor: color.withAlpha(40),
-            radius: 24,
-            child: Icon(Icons.book_outlined, color: color),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: TextTheme.of(context).bodyMedium,
-          ),
-          Text(
-            subtitle,
-            style: TextTheme.of(context).bodySmall,
-          ),
-        ],
-      ),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        CircleAvatar(
+          radius: 24,
+          backgroundColor: color.withAlpha(40),
+          child: Icon(Icons.book_outlined, color: color),
+        ),
+        const SizedBox(height: 4),
+        Text(title),
+        Text(
+          subtitle,
+          style: TextTheme.of(context).bodySmall,
+        ),
+      ]),
     );
   }
 }

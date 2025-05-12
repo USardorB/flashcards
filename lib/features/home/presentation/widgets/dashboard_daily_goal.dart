@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class DashboardDailyGoal extends StatelessWidget {
@@ -13,9 +12,7 @@ class DashboardDailyGoal extends StatelessWidget {
           color: ColorScheme.of(context).surface,
         );
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: context.fromWidth(24),
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 6),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [Color(0xFF14b8a6), Color(0xFF10b981)],
@@ -25,9 +22,9 @@ class DashboardDailyGoal extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: context.fromHeight(8),
+        spacing: 8,
         children: [
-          context.toHeight(16),
+          SizedBox(height: 10),
           Text(
             'Daily Goal',
             style: titleMedium,
@@ -47,7 +44,6 @@ class DashboardDailyGoal extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             title: Text('5 day streak! Keep it up!', style: titleSmall),
           ),
-          context.toHeight(6),
         ],
       ),
     );

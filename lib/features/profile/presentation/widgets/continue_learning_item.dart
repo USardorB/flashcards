@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class ContinueLearningItem extends StatelessWidget {
@@ -27,10 +26,7 @@ class ContinueLearningItem extends StatelessWidget {
         Card.outlined(
           margin: EdgeInsets.zero,
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: context.fromWidth(10),
-              vertical: context.fromHeight(2),
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
             child: Text(
               level,
               style: TextTheme.of(context).labelLarge,
@@ -41,19 +37,20 @@ class ContinueLearningItem extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          context.toHeight(8),
+          SizedBox(height: 8),
           LinearProgressIndicator(
             value: .6,
             minHeight: 6,
             borderRadius: BorderRadius.circular(6),
           ),
-          context.toHeight(8),
+          SizedBox(height: 8),
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
               subtitle,
               style: TextTheme.of(context).bodySmall,
             ),
             Text(
+              // TODO make this dynamic
               '45%',
               style: TextTheme.of(context).bodySmall,
             )

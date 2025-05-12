@@ -7,7 +7,6 @@ class AchievementsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      // shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),

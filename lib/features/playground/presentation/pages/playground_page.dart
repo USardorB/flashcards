@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flashcards/features/playground/presentation/widgets/popular_sets_item.dart';
 import 'package:flashcards/features/playground/presentation/widgets/ready_to_practice_container.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +12,7 @@ class PlaygroundPage extends StatelessWidget {
       body: ListView(padding: const EdgeInsets.all(16), children: [
         const ReadyToPracticeContainer(),
         ListTile(
-          title: Text(
-            'Learning Modes',
-            style: TextTheme.of(context).bodyLarge,
-          ),
+          title: Text('Learning Modes'),
           shape: InputBorder.none,
         ),
         PopularSetsItem(
@@ -26,7 +22,7 @@ class PlaygroundPage extends StatelessWidget {
           icon: Icons.local_grocery_store_outlined,
           color: Colors.amber,
         ),
-        context.toHeight(12),
+        SizedBox(height: 8),
         PopularSetsItem(
           title: 'Quiz Mode',
           subtitle: 'Test your knowledge with multiple choice',
@@ -34,7 +30,7 @@ class PlaygroundPage extends StatelessWidget {
           icon: Icons.gamepad,
           color: Colors.blue,
         ),
-        context.toHeight(12),
+        SizedBox(height: 8),
         PopularSetsItem(
           title: 'Time Challenge',
           subtitle: 'Race against the clock',
@@ -42,7 +38,7 @@ class PlaygroundPage extends StatelessWidget {
           icon: Icons.hourglass_empty_rounded,
           color: Colors.red,
         ),
-        context.toHeight(12),
+        SizedBox(height: 8),
         PopularSetsItem(
           title: 'Matching Game',
           subtitle: 'Match pairs of words',
@@ -50,7 +46,7 @@ class PlaygroundPage extends StatelessWidget {
           icon: Icons.sports_cricket_outlined,
           color: Colors.green,
         ),
-        context.toHeight(12),
+        SizedBox(height: 8),
         PopularSetsItem(
           title: 'Spaced Repetition',
           subtitle: 'Learn with scientifically proven methods',
@@ -67,6 +63,11 @@ class PlaygroundPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             side: const BorderSide(color: Colors.amber, width: 2),
           ),
+          leading: CircleAvatar(
+            backgroundColor: Colors.amber.withAlpha(40),
+            foregroundColor: Colors.amber,
+            child: Icon(Icons.flash_on_rounded),
+          ),
           title: Text(
             "Today's Challenge",
             style: TextTheme.of(context).bodyMedium,
@@ -80,15 +81,12 @@ class PlaygroundPage extends StatelessWidget {
               ),
               FilledButton(
                 onPressed: () {},
-                style: FilledButton.styleFrom(backgroundColor: Colors.amber),
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.amber,
+                ),
                 child: const Text('Start Challenge'),
               )
             ],
-          ),
-          leading: CircleAvatar(
-            backgroundColor: Colors.amber.withAlpha(40),
-            foregroundColor: Colors.amber,
-            child: Icon(Icons.flash_on_rounded),
           ),
         )
       ]),

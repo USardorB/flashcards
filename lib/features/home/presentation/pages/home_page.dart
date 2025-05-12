@@ -1,5 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
-import 'package:flashcards/core/shared/widgets/section_title.dart';
 import 'package:flashcards/features/home/presentation/widgets/change_laugage.dart';
 import 'package:flashcards/features/home/presentation/widgets/continue_learning_item.dart';
 import 'package:flashcards/features/home/presentation/widgets/dashboard_daily_goal.dart';
@@ -24,8 +22,8 @@ class HomePage extends StatelessWidget {
         child: Column(spacing: 12, children: [
           const DashboardDailyGoal(),
           SizedBox(
-            height: context.fromHeight(140),
-            child: Row(spacing: 12, children: [
+            height: 140,
+            child: Row(spacing: 8, children: [
               DashboardFillerCards(
                 title: 'Progress',
                 subtitle: 'Track your learning\njourney',
@@ -40,12 +38,12 @@ class HomePage extends StatelessWidget {
               ),
             ]),
           ),
-          SectionTitle(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            title: Text(
-              'Continue Learning',
-              style: TextTheme.of(context).bodyLarge,
-            ),
+          ListTile(
+            contentPadding: EdgeInsets.all(0),
+            shape: InputBorder.none,
+            minTileHeight: 10,
+            minVerticalPadding: 8,
+            title: Text('Continue Learning'),
             trailing: TextButton(
               onPressed: () {},
               child: const Text('See all'),

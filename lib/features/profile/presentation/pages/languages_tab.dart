@@ -6,16 +6,21 @@ class LanguagesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        ContinueLearningItem(
-          title: 'Spanish',
-          subtitle: '120 words learned',
-          level: 'Intermediate',
-          icon: Icons.book,
-          color: Colors.blueGrey,
-        )
-      ],
-    );
+    return const Column(spacing: 8, children: [
+      ContinueLearningItem(
+        title: 'Spanish',
+        subtitle: '120 words learned',
+        level: 'Intermediate',
+        icon: Icons.book,
+        color: Colors.blueGrey,
+      ),
+      ContinueLearningItem(
+        title: 'English',
+        subtitle: '23282 words learned',
+        level: 'Advanced',
+        icon: Icons.backup_table,
+        color: Colors.blueGrey,
+      ),
+    ]);
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class AppThemes {
@@ -80,6 +79,7 @@ class AppThemes {
       tabBarTheme: TabBarTheme(
         indicatorSize: TabBarIndicatorSize.tab,
         dividerHeight: 0,
+        overlayColor: WidgetStatePropertyAll(Colors.transparent),
         indicator: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -99,7 +99,7 @@ class AppThemes {
         linearTrackColor: Color(0xFFF1F5F9),
       ),
       listTileTheme: ListTileThemeData(
-        minVerticalPadding: context.fromHeight(16),
+        minVerticalPadding: 16,
         horizontalTitleGap: 12,
         minTileHeight: 40,
         shape: RoundedRectangleBorder(

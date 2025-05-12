@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flashcards/features/explore/pages/categories_tab.dart';
 import 'package:flashcards/features/explore/pages/popular_tab.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +12,17 @@ class ExplorePage extends StatelessWidget {
       body: DefaultTabController(
         length: 3,
         child: Padding(
-          padding: EdgeInsets.all(context.fromHeight(16.0)),
+          padding: EdgeInsets.all(16).copyWith(bottom: 0),
           child: Column(
+            spacing: 8,
             children: [
               const SearchBar(
                 hintText: 'Search language sets...',
                 leading: Icon(Icons.search),
               ),
-              context.toHeight(24),
+              SizedBox(height: 16),
               SizedBox(
-                height: context.fromHeight(46),
+                height: 46,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: const Color(0x15626C79),
@@ -38,7 +38,6 @@ class ExplorePage extends StatelessWidget {
                   ),
                 ),
               ),
-              context.toHeight(8),
               const Flexible(
                 child: TabBarView(
                   children: [

@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flashcards/features/explore/widgets/popular_sets_item.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +7,9 @@ class PopularTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.only(top: 8),
       child: Column(
-        spacing: context.fromHeight(12),
+        spacing: 12,
         children: [
           const PopularSetsItem(
             title: 'Essential Phrases',

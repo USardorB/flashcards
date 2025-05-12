@@ -1,4 +1,3 @@
-import 'package:flashcards/core/extensions/build_context.dart';
 import 'package:flutter/material.dart';
 
 class PopularSetsItem extends StatelessWidget {
@@ -19,35 +18,29 @@ class PopularSetsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      shape: RoundedRectangleBorder(
-        side: const BorderSide(color: Colors.black12),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      title: Text(
-        title,
-        style: TextTheme.of(context).bodyMedium,
-      ),
-      subtitle: Text(
-        subtitle,
-        style: TextTheme.of(context).bodySmall,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       leading: CircleAvatar(
         backgroundColor: color.withAlpha(40),
         child: Icon(icon, color: color),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+      title: Text(
+        title,
+        style: TextTheme.of(context).bodyMedium,
+        maxLines: 1,
+      ),
+      subtitle: Text(
+        subtitle,
+        style: TextTheme.of(context).bodySmall,
+        maxLines: 2,
+        overflow: TextOverflow.fade,
+      ),
       trailing: Align(
         widthFactor: 0,
         alignment: const Alignment(1, -.5),
         child: Card.outlined(
           margin: EdgeInsets.zero,
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: context.fromWidth(10),
-              vertical: context.fromHeight(2),
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
             child: Text(
               mode,
               style: TextTheme.of(context).labelLarge,
