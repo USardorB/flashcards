@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-6.14.0-061400-generic")
+set(CMAKE_HOST_SYSTEM "Linux-6.14.0-15-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "6.14.0-061400-generic")
+set(CMAKE_HOST_SYSTEM_VERSION "6.14.0-15-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 include("/home/novo/Android/Sdk/ndk/26.3.11579264/build/cmake/android.toolchain.cmake")

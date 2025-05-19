@@ -1,3 +1,5 @@
+import 'package:flashcards/features/playground/presentation/pages/flashcards_page.dart';
+import 'package:flashcards/features/playground/presentation/pages/time_challenge_page.dart';
 import 'package:flashcards/features/playground/presentation/widgets/popular_sets_item.dart';
 import 'package:flashcards/features/playground/presentation/widgets/ready_to_practice_container.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +23,14 @@ class PlaygroundPage extends StatelessWidget {
           mode: 'Classic',
           icon: Icons.local_grocery_store_outlined,
           color: Colors.amber,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FlashcardsPage(),
+              ),
+            );
+          },
         ),
         SizedBox(height: 8),
         PopularSetsItem(
@@ -36,6 +46,14 @@ class PlaygroundPage extends StatelessWidget {
           subtitle: 'Race against the clock',
           mode: 'Advanced',
           icon: Icons.hourglass_empty_rounded,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TimeChallengePage(),
+              ),
+            );
+          },
           color: Colors.red,
         ),
         SizedBox(height: 8),

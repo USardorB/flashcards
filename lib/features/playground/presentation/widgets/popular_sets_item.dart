@@ -6,6 +6,7 @@ class PopularSetsItem extends StatelessWidget {
   final String mode;
   final IconData icon;
   final Color color;
+  final VoidCallback? onTap;
   const PopularSetsItem({
     super.key,
     required this.title,
@@ -13,11 +14,13 @@ class PopularSetsItem extends StatelessWidget {
     required this.mode,
     required this.icon,
     required this.color,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: onTap,
       contentPadding: const EdgeInsets.symmetric(horizontal: 12),
       leading: CircleAvatar(
         backgroundColor: color.withAlpha(40),
