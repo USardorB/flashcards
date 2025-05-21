@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PopularSetsItem extends StatelessWidget {
+class PlaygroundItem extends StatelessWidget {
   final String title;
   final String subtitle;
   final String mode;
   final IconData icon;
   final Color color;
   final VoidCallback? onTap;
-  const PopularSetsItem({
+  const PlaygroundItem({
     super.key,
     required this.title,
     required this.subtitle,

@@ -1,8 +1,10 @@
-import 'package:flashcards/features/playground/presentation/widgets/current_progress.dart';
-import 'package:flashcards/features/playground/presentation/widgets/quiz_variants.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class QuizModePage extends StatelessWidget {
+  /// [QuizModePage], a page that can be accessed using BottomNavbar.
+  /// This page is a game where the user has to answer questions.
   const QuizModePage({super.key});
 
   @override
