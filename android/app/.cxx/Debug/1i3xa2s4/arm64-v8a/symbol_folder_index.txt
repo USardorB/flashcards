@@ -1,0 +1,1 @@
+/home/asus/dev/builds/flashcards/build/app/intermediates/cxx/Debug/1i3xa2s4/obj/arm64-v8a

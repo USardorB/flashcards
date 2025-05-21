@@ -1,4 +1,6 @@
 import 'package:flashcards/features/playground/presentation/pages/flashcards_page.dart';
+import 'package:flashcards/features/playground/presentation/pages/matching_challenge_page.dart';
+import 'package:flashcards/features/playground/presentation/pages/quiz_mode_page.dart';
 import 'package:flashcards/features/playground/presentation/pages/time_challenge_page.dart';
 import 'package:flashcards/features/playground/presentation/widgets/popular_sets_item.dart';
 import 'package:flashcards/features/playground/presentation/widgets/ready_to_practice_container.dart';
@@ -39,6 +41,14 @@ class PlaygroundPage extends StatelessWidget {
           mode: 'Popular',
           icon: Icons.gamepad,
           color: Colors.blue,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuizModePage(),
+              ),
+            );
+          },
         ),
         SizedBox(height: 8),
         PopularSetsItem(
@@ -63,6 +73,14 @@ class PlaygroundPage extends StatelessWidget {
           mode: 'Fun',
           icon: Icons.sports_cricket_outlined,
           color: Colors.green,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MatchingChallengePage(),
+              ),
+            );
+          },
         ),
         SizedBox(height: 8),
         PopularSetsItem(
