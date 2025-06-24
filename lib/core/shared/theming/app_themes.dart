@@ -76,7 +76,7 @@ class AppThemes {
           ),
         ),
       ),
-      tabBarTheme: TabBarTheme(
+      tabBarTheme: TabBarThemeData(
         indicatorSize: TabBarIndicatorSize.tab,
         dividerHeight: 0,
         overlayColor: WidgetStatePropertyAll(Colors.transparent),
