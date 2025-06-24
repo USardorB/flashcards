@@ -1,28 +1,52 @@
 import 'dart:math';
 
-import 'package:flashcards/features/playground/presentation/widgets/current_progress.dart';
-import 'package:flashcards/features/playground/presentation/widgets/flashcard.dart';
-import 'package:flashcards/features/playground/presentation/widgets/flashcard_actions.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
+/// [FlashcardsPage] is [StatefulWidget] as it needs to animate the flashcards
 class FlashcardsPage extends StatefulWidget {
+  /// [FlashcardsPage] to display the words in swipable cards format.
+  /// This is also considered the default mode of playing(when entering from [HomePage])
   const FlashcardsPage({super.key});
 
   @override
   State<FlashcardsPage> createState() => _FlashcardsPageState();
 }
 
+/// [TickerProviderStateMixin] is used to provide a [Ticker] for the [AnimationController]
 class _FlashcardsPageState extends State<FlashcardsPage>
     with TickerProviderStateMixin {
-  late AnimationController _flipController;
-  bool _isFront = true;
+  // [_flipController] to control the flip animation of the flashcards
+  late final AnimationController _flipController;
+  bool _isFront = true; //  A flag to determine the side of the card
 
-  Offset _position = Offset.zero;
-  late AnimationController _swipeController;
-  late Animation<Offset> _animation;
+  // [AnimationController] to control the swipe animation of the flashcards
+  late final AnimationController _swipeController;
+  late final Animation<Offset> _animation;
+  Offset _position = Offset.zero; // The position of the card
+
+  @override
+  void initState() {
+    _swipeController = AnimationController(vsync: this);
+
+    _flipController = AnimationController(
+      vsync: this,
+      duration: Durations.long2,
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _flipController.dispose();
+    _swipeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    // The rotation of the card based on the position
     final rotation = _position.dx / 300;
 
     return Scaffold(
@@ -74,54 +98,30 @@ class _FlashcardsPageState extends State<FlashcardsPage>
     );
   }
 
-  @override
-  void dispose() {
-    _flipController.dispose();
-    _swipeController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    _swipeController = AnimationController(vsync: this);
-
-    _flipController = AnimationController(
-      vsync: this,
-      duration: Durations.long2,
-    );
-    super.initState();
-  }
-
+  // [_animateBack] to animate the card back to the center
   void _animateBack() {
     _animation = Tween<Offset>(begin: _position, end: Offset.zero).animate(
       CurvedAnimation(parent: _swipeController, curve: Curves.easeOut),
-    )..addListener(() {
-        setState(() {
-          _position = _animation.value;
-        });
-      });
+    )..addListener(() => setState(() => _position = _animation.value));
 
     _swipeController
       ..duration = Durations.medium1
       ..forward(from: 0);
   }
 
+  // [_animateOffscreen] to animate the card offscreen
   void _animateOffscreen(Offset target) {
     _animation = Tween<Offset>(begin: _position, end: target).animate(
       CurvedAnimation(parent: _swipeController, curve: Curves.easeOut),
-    )..addListener(() {
-        setState(() {
-          _position = _animation.value;
-        });
-      });
+      // Update the position of the card by listening to it
+    )..addListener(() => setState(() => _position = _animation.value));
 
     _swipeController
       ..duration = Durations.long4
-      ..forward(from: 0).whenComplete(() {
-        _resetCard();
-      });
+      ..forward(from: 0).whenComplete(() => _resetCard());
   }
 
+  // [_flip] to flip the card
   void _flip() {
     if (_isFront) {
       _flipController.forward();
@@ -131,29 +131,27 @@ class _FlashcardsPageState extends State<FlashcardsPage>
     _isFront = !_isFront;
   }
 
+  // Check if the card is swiped left or right
   void _onPanEnd(DragEndDetails details) {
     final screenWidth = MediaQuery.of(context).size.width;
     final threshold = screenWidth * 0.3;
 
+    // If the card is swiped left or right, animate it offscreen
     if (_position.dx > threshold) {
       _animateOffscreen(Offset(screenWidth * 2, _position.dy));
     } else if (_position.dx < -threshold) {
       _animateOffscreen(Offset(-screenWidth * 2, _position.dy));
     } else {
-      // Reset position
+      // If the card is not swiped, animate it back to the center
       _animateBack();
     }
   }
 
-  void _onPanUpdate(DragUpdateDetails details) {
-    setState(() {
-      _position += details.delta;
-    });
-  }
+  // [_onPanUpdate] to update the position of the card
+  void _onPanUpdate(DragUpdateDetails details) => setState(
+        () => _position += details.delta,
+      );
 
-  void _resetCard() {
-    setState(() {
-      _position = Offset.zero;
-    });
-  }
+  // [_resetCard] to reset the position of the card
+  void _resetCard() => setState(() => _position = Offset.zero);
 }

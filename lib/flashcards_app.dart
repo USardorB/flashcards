@@ -20,9 +20,7 @@ class FlashcardsApp extends StatelessWidget {
     Widget? child,
   ) {
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(
-        textScaler: TextScaler.linear(MediaQuery.sizeOf(context).width / 400.0),
-      ),
+      data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
       child: child!,
     );
   }

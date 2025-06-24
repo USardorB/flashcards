@@ -22,6 +22,11 @@ class AppThemes {
         // titleSmall: This has already its own place
         titleLarge: TextStyle(fontWeight: FontWeight.bold),
         titleMedium: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+        titleSmall: TextStyle(
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF64748B),
+          fontSize: 16,
+        ),
         bodyLarge: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
         bodyMedium: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
         labelMedium: TextStyle(

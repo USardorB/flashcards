@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import '../pages/pages.dart';
 import 'package:flutter/material.dart';
 
 class ReadyToPracticeContainer extends StatelessWidget {
@@ -34,7 +37,17 @@ class ReadyToPracticeContainer extends StatelessWidget {
           ),
           SizedBox(height: 8),
           FilledButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => [
+                  FlashcardsPage(),
+                  QuizModePage(),
+                  TimeChallengePage(),
+                  MatchingChallengePage()
+                ].elementAt(Random().nextInt(4)),
+              ),
+            ),
             style: FilledButton.styleFrom(
               backgroundColor: ColorScheme.of(context).surface,
               foregroundColor: ColorScheme.of(context).onSurface,
